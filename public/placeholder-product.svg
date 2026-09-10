@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#F5F5F5"/>
+  <circle cx="200" cy="170" r="45" fill="#E5E5E5"/>
+  <path d="M120 280 L280 280 L250 210 L210 250 L180 220 Z" fill="#D4D4D4"/>
+  <text x="200" y="320" font-family="Inter, sans-serif" font-size="14" fill="#A3A3A3" text-anchor="middle" font-weight="500">Universal Marketplace</text>
+</svg>

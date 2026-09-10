@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Navy (§1.1) */
+  --color-navy-50: #EDF0F5;
+  --color-navy-100: #D6DCE8;
+  --color-navy-200: #AEB9D0;
+  --color-navy-300: #7E8CAF;
+  --color-navy-400: #4C5C87;
+  --color-navy-500: #243A63;
+  --color-navy-700: #0A1830;
+  --color-navy-800: #070F20;
+  --color-navy-900: #040914;
+
+  /* Gold (§1.1) */
+  --color-gold-50: #FDF3E1;
+  --color-gold-100: #FAE3B3;
+  --color-gold-200: #F6D085;
+  --color-gold-300: #F3BD5C;
+  --color-gold-500: #F0A824;
+  --color-gold-600: #D6910F;
+  --color-gold-700: #B3760A;
+  --color-gold-900: #5C3D05;
+
+  /* Blue, Green, Red (§1.1) */
+  --color-blue-50: #E6F4FC;
+  --color-blue-300: #5CBBEA;
+  --color-blue-500: #0288D1;
+  --color-blue-700: #01608F;
+
+  --color-green-50: #E9F8EF;
+  --color-green-500: #16A34A;
+  --color-green-700: #0F7A37;
+
+  --color-red-50: #FDECEA;
+  --color-red-500: #E5231B;
+  --color-red-700: #AD1912;
+
+  /* Neutrals (§1.1) */
+  --color-surface: #FFFFFF;
+  --color-page: #F6F8FB;
+  --color-page-warm: #FAF8F4;
+  --color-ink-900: #101826;
+  --color-ink-600: #4B5468;
+  --color-ink-300: #9AA1B0;
+  --color-border: #E3E7EE;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-page);
+    color: var(--color-ink-900);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2 {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+/* §10 Motion Budget Utilities */
+.card-motion {
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+.card-motion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(10, 24, 48, 0.10);
+}
+
+.btn-motion {
+  transition: background-color 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+.btn-motion:hover {
+  box-shadow: 0 2px 6px rgba(10, 24, 48, 0.15);
+}
+
+/* Category Rail Animated Underline (§4) */
+.nav-underline-animated {
+  position: relative;
+}
+
+.nav-underline-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-gold-500);
+  transition: width 150ms ease-in-out, left 150ms ease-in-out;
+}
+
+.nav-underline-animated:hover::after,
+.nav-underline-animated.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* 44x44px minimum touch target on mobile (§9) */
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Safe area insets */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Hide scrollbar for clean rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Motion reduction compliance (§10) */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
