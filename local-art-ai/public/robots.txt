@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://local-art-ai-sigma.vercel.app/sitemap.xml
