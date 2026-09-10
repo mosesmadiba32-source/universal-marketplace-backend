@@ -6,4 +6,5 @@ dist-ssr
 .env.*.local
 .DS_Store
 universal-marketplace-backend
-local-art-ai
+local-art-ai/node_modules
+local-art-ai/dist
